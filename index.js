@@ -5,15 +5,18 @@ const fs = require('fs');
 
 function getExif(image) {
 	return new Promise((resolve, reject) => {
+		if (image.toLowerCase().indexOf('.JPG') === -1) {
+			resolve();
+		}
 		try {
 			new ExifImage({ image }, function (error, exifData) {
 				if (error)
 					console.log('Error: '+error.message);
 				else {
-					const {gps: {GPSLongitude, GPSLongitudeRef, GPSLatitude, GPSLatitudeRef}} = exifData;
+					const { gps: { GPSLongitude, GPSLongitudeRef, GPSLatitude, GPSLatitudeRef }, exif: { CreateDate}} = exifData;
 					if (GPSLatitude && GPSLongitude) {
 						const dec = dms2dec(GPSLongitude, GPSLongitudeRef, GPSLatitude, GPSLatitudeRef);
-						resolve(dec);
+						resolve({ dec, date: CreateDate});
 					}
 					resolve();
 				}
@@ -34,7 +37,9 @@ fs.readdir('./images', (err, files) => {
 	}, []);
 
 	Promise.all(promises).then((points) => {
-		points = points.filter(Boolean);
+		// console.log(points)
+		// .sort((pointa, pointb) => pointa.dec[1] > pointb.dec[1])
+		points = points.filter(Boolean).map((point) => point.dec);
 		const line1 = turf.lineString(points, {name: 'line 1'});
 		console.log(JSON.stringify(line1));
 	})
