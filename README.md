@@ -1,4 +1,8 @@
 # images-geodata-to-path
+This node script will extract exif geo data from photos to create a path geoJSON path.
+
+Perfect way to get geo data from images to Google Earth. Where you can get an estimate distance & elevation profile
+![capture](https://user-images.githubusercontent.com/220755/42745203-0c81ebea-8897-11e8-85e4-d42365a9f5a4.PNG)
 
 ## Install
 
