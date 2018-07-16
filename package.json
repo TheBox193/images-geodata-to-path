@@ -1,0 +1,12 @@
+{
+  "name": "image-meta-data",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jonathan Stassen",
+  "license": "MIT",
+  "dependencies": {
+    "@turf/helpers": "^6.1.4",
+    "dms2dec": "^1.1.0",
+    "exif": "^0.6.0"
+  }
+}
