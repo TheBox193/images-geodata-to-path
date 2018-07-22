@@ -3,6 +3,7 @@ var dms2dec = require('dms2dec');
 var turf = require('@turf/helpers');
 const fs = require('fs');
 const moment = require('moment');
+const tokml = require('tokml');
 
 function getExif(image) {
 	return new Promise((resolve, reject) => {
@@ -55,7 +56,7 @@ fs.readdir('./images', (err, files) => {
 			line1,
 			// ...pins
 		]);
-
-		console.log(JSON.stringify(features));
+		const kml = tokml(features);
+		fs.writeFile('./temp/data.kml', kml);
 	})
 })
