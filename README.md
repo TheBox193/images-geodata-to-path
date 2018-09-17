@@ -22,3 +22,8 @@ Perfect way to get geo data from images to Google Earth. Where you can get an es
 * Make into shell script?
 * Prompts?
 * Noise filtering (ignore points that are problaby impossible)
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/TheBox193/images-geodata-to-path/badge.svg?style=beer-square)](https://beerpay.io/TheBox193/images-geodata-to-path)  [![Beerpay](https://beerpay.io/TheBox193/images-geodata-to-path/make-wish.svg?style=flat-square)](https://beerpay.io/TheBox193/images-geodata-to-path?focus=wish)
